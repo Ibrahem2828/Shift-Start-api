@@ -1,0 +1,48 @@
+<!-- add_user.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إضافة مستخدم</title>
+</head>
+<body>
+    <h1>إضافة مستخدم جديد</h1>
+
+    {% if error_message %}
+        <div style="color: red;">
+            <strong>خطأ:</strong> {{ error_message }}
+        </div>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <label for="username">اسم المستخدم:</label>
+        <input type="text" name="username" required>
+        
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" name="email" required>
+        
+        <label for="password">كلمة المرور:</label>
+        <input type="password" name="password" required>
+    
+        <h3>الصلاحيات:</h3>
+        <label>
+            <input type="checkbox" name="permissions" value="can_delete_user"> يمكن حذف المستخدمين
+        </label><br>
+        <label>
+            <input type="checkbox" name="permissions" value="can_edit_user"> يمكن تعديل المستخدمين
+        </label><br>
+        <label>
+            <input type="checkbox" name="permissions" value="can_view_user"> يمكن عرض المستخدمين
+        </label><br>
+    
+        <button type="submit">تسجيل</button>
+    </form>
+    
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+
+    <a href="{% url 'user_list' %}">العودة إلى قائمة المستخدمين</a>
+</body>
+</html> 

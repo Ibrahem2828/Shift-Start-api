@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to My Django App</h1>
+    <p>Use the following links to interact with the MongoDB:</p>
+    <ul>
+        <li>إذا كان لديك حساب، يرجى تسجيل الدخول</li>
+        <li><a href="{% url 'login' %}">تسجيل الدخول</a></li>
+        <li>إنشاء حساب</li>
+        <li><a href="{% url 'register' %}">تسجيل</a></li>
+    </ul>
+</body>
+</html>
